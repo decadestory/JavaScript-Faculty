@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="common.css">
+    <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="date.js"></script>
+    <script type="text/javascript" src="iscroll.js"></script>
+</head>
+<body>
+<div>
+    <input id="orderTime" type="text" />
+</div>
+
+<div id="datePlugin"></div>
+
+<script type="text/javascript">
+    $(function(){
+    $('#orderTime').date({
+        beginyear:2001,
+        curdate:true
+    });
+    //$('#orderTime').date({theme:"datetime"});
+});
+</script>
+
+</body>
+</html>
+
+
+
+
+

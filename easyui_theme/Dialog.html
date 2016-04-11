@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/easyui.css" rel="stylesheet" />
+    <link href="css/uicss.css" rel="stylesheet" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.easyui.min.js"></script>
+    <script src="js/ui.js"></script>
+</head>
+<body>
+    <div>
+        <a btn onclick="$.messager.alert('标题', '加载完成啦！！');"><i class="fa fa-question-circle"></i> 默认提示</a>
+        <a btn wlspac onclick="$.messager.alert('标题', '请点按钮发送数据！', 'info');">消息提示</a>
+        <a btn wlspac onclick="$.messager.alert('标题', '请填写完整！', 'warning');">警告提示</a>
+        <a btn wlspac onclick="$.messager.alert('标题', '操作失败，请检查网络...', 'error');">错误提示</a>
+        <a btn wlspac onclick="confirm();">确认提示</a>
+        <a btn wlspac onclick="progress();">加载条</a>
+    </div>
+    <div class="adj-msg">
+        <i class="fa fa-info-circle"></i>
+        请完善以下信息，<b>打星</b>的为必填信息，您还可以<b>fuck</b>一下。
+        <ul>
+            <li>请打开冰箱</li>
+            <li>把大象放进去</li>
+            <li>把冰箱门关上</li>
+        </ul>
+        <i adj-msg-icon class="fa fa-times"></i>
+    </div>
+
+    <div class="adj-msg msg-info">
+        <i class="fa fa-warning"></i> 我只想说 --- 你tm太<b>帅</b>了。
+        <i adj-msg-icon class="fa fa-times"></i>
+    </div>
+
+    <div class="adj-msg msg-warn">
+        <i class="fa fa-warning"></i> 警告，你<b>人品有问题。</b>
+        <i adj-msg-icon class="fa fa-times"></i>
+    </div>
+
+    <div class="adj-msg msg-error">
+        <i class="fa fa-times"></i> 对不起，<b>操作人信息</b>不能为空，请<b>核实</b>一下所填的信息。
+        <i adj-msg-icon class="fa fa-times"></i>
+    </div>
+
+    <div class="adj-msg msg-ok">
+        <i class="fa fa-check"></i> 操作成功，恭喜您获得<b>$10000000</b>的天使资金，您现在可以去嗨一下。
+        <i adj-msg-icon class="fa fa-times"></i>
+    </div>
+
+    <br />
+    <div>
+        <a btn wlspac onclick="showModalDialog()">对话框</a>
+        <a btn wlspac>iframe对话框</a>
+    </div>
+    <div id="dialog" class="easyui-dialog" title=" 确定要审核为不通过吗？" data-options="modal:true" style="height: 260px; padding: 15px; width: 350px;">
+        <p>填写备注</p>
+        <textarea style="width:250px;height: 80px;margin-bottom: 15px;"></textarea>
+        <div>
+            <a onclick="comfirmFail_cqb()" class="easyui-linkbutton" data-options="iconCls:'icon-ok'">审核不通过</a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $('#dialog').dialog({ closed: true });
+
+        function confirm() {
+            $.messager.confirm('标题', '你TM真的要退出系统么？', function (r) {
+                if (r) {
+                    $.messager.progress({ msg: "正在退出..." });
+                }
+            });
+        }
+
+        function progress() {
+            $.messager.progress();
+            setTimeout(function () {
+                $.messager.progress("close");
+            }, 3000);
+        }
+
+        $('[adj-msg-icon]').bind('click', function () {
+            $(this).parent().fadeOut(500);
+        });
+
+        function showModalDialog() {
+            $('#dialog').dialog("open");
+        }
+
+    </script>
+</body>
+</html>

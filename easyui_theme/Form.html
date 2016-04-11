@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="css/easyui.css" rel="stylesheet" />
+    <link href="css/uicss.css" rel="stylesheet" /> 
+     <script src="js/jquery.min.js"></script>  
+    <script src="js/jquery.easyui.min.js"></script>   
+
+</head>
+<body>
+    <table adj-tb-l>
+        <tr>
+            <td>司机姓名</td>
+            <td><input class="easyui-textbox" /></td>
+            <td>性别</td>
+            <td>
+                <select class="easyui-combobox">
+                    <option>男</option>
+                    <option selected>女</option>
+                </select>
+            </td>
+            <td>年龄</td>
+            <td><input class="easyui-textbox" /></td>
+        </tr>
+        <tr>
+            <td>身份证</td>
+            <td><input class="easyui-textbox" /></td>
+            <td>工作城市</td>
+            <td>
+                <select class="easyui-combobox select_m">
+                    <option>江苏省</option>
+                </select>
+
+                <select class="easyui-combobox select_m">
+                    <option>苏州市</option>
+                </select>
+
+                <select class="easyui-combobox select_m">
+                    <option>吴中区</option>
+                </select>
+            </td>
+            <td>准驾车型</td>
+            <td>
+                <select class="easyui-combobox">
+                    <option>A1</option>
+                    <option>B1</option>
+                    <option selected>C1</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>初次领证日期</td>
+            <td><input class="easyui-datebox" value="2015-12-23" /></td>
+            <td>星级</td>
+            <td><input class="easyui-textbox" disabled value="123" /></td>
+            <td>手机型号</td>
+            <td>
+                <select class="easyui-combobox select_m" disabled>
+                    <option>大可乐</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>头像</td>
+            <td>
+                <img src="#" img-square onerror="this.src = 'http://cdnq.duitang.com/uploads/item/201410/13/20141013160918_2wZEv.thumb.700_0.gif'" alt="Alternate Text" />
+            </td>
+            <td>驾驶证</td>
+            <td>
+                <img src="#" img-idcard onerror="this.src = 'http://img.longjiang.net/forum/201404/25/131917k9sfxfyirqqvrxy9.jpg'" alt="Alternate Text" />
+            </td>
+            <td>身份证</td>
+            <td>
+                <img src="#" img-idcard onerror="this.src = 'http://img.longjiang.net/forum/201404/25/131917k9sfxfyirqqvrxy9.jpg'" alt="Alternate Text" />
+            </td>
+        </tr>
+        <tr>
+            <td>初次领证日期</td>
+            <td><input class="easyui-datebox" value="2015-12-23" /></td>
+            <td>星级</td>
+            <td><input class="easyui-textbox" disabled value="123" /></td>
+            <td>手机型号</td>
+            <td>
+                <select class="easyui-combobox select_m" disabled>
+                    <option>大可乐</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>是否显示</td>
+            <td>
+                <input type="radio" name="show" checked="checked" />是
+                <input type="radio" name="show" />否
+            </td>
+            <td>选择项目</td>
+            <td>
+                <input type="checkbox" checked="checked" />运动
+                <input type="checkbox" />音乐
+                <input type="checkbox" />写程序
+                <input type="checkbox" />游戏
+                <input type="checkbox" />看书
+                <input type="checkbox" />其它
+            </td>
+            <td></td>
+            <td>
+               
+            </td>
+        </tr>
+        <tr>
+            <td>备注</td>
+            <td colspan="5">
+                <textarea placeholder="请输入一句话"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td colspan="5" padding-all-20>
+                <a btn><i class="fa fa-car"></i> 确认入职</a>
+                <a btn wlspac><i class="fa fa-spinner fa-pulse"></i> 正在入职...</a>
+            </td>
+        </tr>
+    </table>
+    <p>
+
+    </p>
+</body>
+</html>

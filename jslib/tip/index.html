@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>tips - JSLib</title>
+    <link href="../BaseCss/base.css" rel="stylesheet" />
+    <link href="skin/tip.css" rel="stylesheet" />
+    <script src="Js/jquery-1.8.3.js"></script>
+    <script src="Js/tip.js"></script>
+</head>
+<body>
+    <h1>提示信息</h1>
+    <a class="a_btn_standard">查看演示</a>
+    <h1>完成信息</h1>
+    <a class="a_btn_ok">查看演示</a>
+     <h1>出错信息</h1>
+    <a class="a_btn_error">查看演示</a>
+    <h1>确认信息</h1>
+    <a class="a_btn_worning">查看演示</a>
+</body> 
+    <script type="text/javascript">
+          $('.a_btn_standard').click(function () {
+              $.tip.info("点我干嘛丫");
+          });
+          $('.a_btn_ok').click(function () {
+              $.tip.ok("添加成功喽");
+          });
+          $('.a_btn_error').click(function () {
+              $.tip.error("添加失败喽");
+          });
+
+          $('.a_btn_worning').click(function () {
+              $.tip.confirm("确认删除吗？", function () {
+                  $.tip.ok("你选择了确认"); 
+              });
+          });
+    </script>
+</html>

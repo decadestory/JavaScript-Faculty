@@ -1,0 +1,55 @@
+﻿body {
+    background-color: #000044;
+    background: url(../images/bg.jpg) center no-repeat;
+    background-size: cover;
+    margin: 0px;
+    overflow: hidden;
+}
+
+a {
+    color: #0078ff;
+}
+
+.snow-el {
+    animation: 2s ease 0s normal none infinite animations;
+    color: #FFFFFF;
+    font-family: "arial";
+    font-size: 30px;
+    height: 26px;
+    line-height: 26px;
+    opacity: 0.9;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    text-shadow: 0 0 3px #FFFFFF;
+    top: -40px;
+    width: 26px;
+}
+
+
+#container {
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    bottom:50px;
+    margin-left: -530px;
+    border-radius: 5px;
+    width: 1000px;
+    color: white;
+    padding: 0px 30px;
+    min-height:300px;
+}
+
+#con_title {
+    padding: 10px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0,0.8);
+    font-size: 40px;
+    font-family: 'Roboto Slab', serif;
+}
+
+#con_1 {
+    height: 80%;
+    color:#deeedc;
+    border-top: 1px inset rgba(255, 255, 255,0.25);
+}

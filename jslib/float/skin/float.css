@@ -1,0 +1,20 @@
+﻿body {
+}
+
+.float-span {
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    right: 100px;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    border-radius: 3px;
+    background: url('bg.png');
+    background-position: center center;
+    background-color: #ccd8e5;
+}
+
+.float-span-hover {
+background-color:#449fdb;
+}

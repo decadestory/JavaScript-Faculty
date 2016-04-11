@@ -1,0 +1,72 @@
+[adj-citypicker]{
+	position: fixed;
+	display: none;
+	background-color: #fff;
+	height: 300px;
+	width: 400px;
+	border:1px solid #ddd;
+	padding:10px;
+	font-size: 15px;
+	font-family: "宋体";
+	color: #444;
+}
+
+[adj-citypicker-header]{
+	position: relative;
+	padding-bottom: 10px;
+	font-weight: bold;
+	border-bottom: 1px solid #ddd;
+}
+
+[adj-citypicker-header-icon]{
+	position: absolute;
+	text-decoration: none;
+	font-weight: normal;
+	top:0;
+	right:10px;
+	color: #444;
+}
+
+[adj-citypicker-body]{
+	font-size: 13px;
+	height: 250px;
+	overflow-y: scroll;
+}
+
+[adj-citypicker-row]{
+	width: 100%;
+	margin:5px 0; 
+}
+[adj-citypicker-sign-td]{
+	text-align: center;
+	vertical-align: top;
+	padding-top:3px;
+	width: 	40px;
+}
+
+[adj-citypicker-sign]{
+	font-size: 16px;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-family: "微软雅黑";
+	font-weight: bold;
+	display: inline-block;
+	color: #fff;
+	background-color: #222;
+}
+
+[adj-citypicker-items]{
+	display: inline-block;
+	line-height: 20px;
+}
+
+[adj-citypicker-item]{
+	cursor: pointer;
+	margin-right: 4px;
+}
+
+[adj-citypicker-item]:hover{
+	color:green;
+}

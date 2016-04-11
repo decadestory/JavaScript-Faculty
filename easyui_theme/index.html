@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Border Layout - jQuery EasyUI Demo</title>
+    <link href="css/easyui.css" rel="stylesheet" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.easyui.min.js"></script>
+    <style>
+        .litem {
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            border-bottom: 1px dotted black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="easyui-layout">
+<div data-options="region:'north',border:false" 
+     style="height: 60px; padding: 10px; font-size: 18px;
+background: -webkit-linear-gradient(top, #ffffff 0, #F2F2F2 100%); ">
+    easyui 通用模板
+</div>
+    <div data-options="region:'west',split:true,title:'菜单列表'" style="width:200px;">
+        <ul title="Basic DataList" style="width:100%; margin: 0; list-style-type: none; padding: 0;">
+            <li class="litem" onclick="onModuleClick('', 'DataGrid.html')">DataGrid</li>
+            <li class="litem" onclick="onModuleClick('', 'SearchForm.html')">SearchForm</li>
+            <li class="litem" onclick="onModuleClick('', 'SearchForm_DataGrid.html')">SearchForm_DataGrid</li>
+            <li class="litem" onclick="onModuleClick('', 'Table.html')">Table</li>
+            <li class="litem" onclick="onModuleClick('', 'Form.html')">Form</li>
+            <li class="litem" onclick="onModuleClick('', 'Dialog.html')">Dialog</li>
+        </ul>
+    </div>
+    <div data-options="region:'center'">
+        <div id="main_tt" class="easyui-panel" fit="true" plain="true" style="overflow: hidden">
+            <h2 style="margin-left: 10px;">这里是高大上的首页</h2>
+        </div>
+    </div>
+
+    <div id="mm" class="easyui-menu" style="width: 150px;">
+        <div id="refresh">刷新</div>
+        <div class="menu-sep"></div>
+        <div id="close">关闭</div>
+        <div id="closeall">全部关闭</div>
+        <div id="closeother">除此之外全部关闭</div>
+        <div class="menu-sep"></div>
+        <div id="closeright">当前页右侧全部关闭</div>
+        <div id="closeleft">当前页左侧全部关闭</div>
+        <div class="menu-sep"></div>
+        <div id="exit">退出</div>
+    </div>
+    <script type="text/javascript">
+        var onlyOpenTitle = "首页";//不允许关闭的标签的标题
+        $(function () {
+            tabClose();
+            tabCloseEven();
+        });
+
+        function onModuleClick(title, url) {
+            if (url == '')
+                return;
+            // addTab(title, url, 'self');
+            $('#main_tt').html(createFrame(url));
+        }
+
+        function addTab(subtitle, url, target, icon) {
+            if (!$('#main_tt').tabs('exists', subtitle)) {
+                $('#main_tt').tabs('add', {
+                    title: subtitle,
+                    content: createFrame(url),
+                    closable: true,
+                    icon: icon
+                });
+            } else {
+                $('#main_tt').tabs('select', subtitle);
+                var currentTab = $('#main_tt').tabs('getSelected');  // get selected panel
+                $('#main_tt').tabs('update', {
+                    tab: currentTab,
+                    options: {
+                        content: createFrame(url)
+                    }
+                });
+                //$('#mm-tabupdate').click();
+            }
+            tabClose();
+        }
+
+        function createFrame(url) {
+            var s = '<iframe  scroll="auto" frameborder="0" style="height:100%;width:100%;" src="' + url + '" class="tabFrame"></iframe>';
+            return s;
+        }
+
+        function tabCloseEven() {
+
+            $('#mm').menu({
+                onClick: function (item) {
+                    closeTab(item.id);
+                }
+            });
+
+            return false;
+        }
+
+        function tabClose() {
+            /*双击关闭TAB选项卡*/
+            $(".tabs-inner").dblclick(function () {
+                var subtitle = $(this).children(".tabs-closable").text();
+                $('#main_tt').tabs('close', subtitle);
+            });
+            /*为选项卡绑定右键*/
+            $(".tabs-inner").bind('contextmenu', function (e) {
+                $('#mm').menu('show', {
+                    left: e.pageX,
+                    top: e.pageY
+                });
+
+                var subtitle = $(this).children(".tabs-closable").text();
+
+                $('#mm').data("currtab", subtitle);
+                $('#main_tt').tabs('select', subtitle);
+                return false;
+            });
+        }
+
+        function closeTab(action) {
+            var alltabs = $('#main_tt').tabs('tabs');
+            var currentTab = $('#main_tt').tabs('getSelected');
+            var currtabTitle = currentTab.panel('options').title;
+            if (currtabTitle == onlyOpenTitle)
+                return false;
+            var allTabtitle = [];
+            $.each(alltabs, function (i, n) {
+                allTabtitle.push($(n).panel('options').title);
+            });
+
+            var tabIndex;
+            switch (action) {
+                case "refresh":
+                    var iframe = $(currentTab.panel('options').content);
+                    var src = iframe.attr('src');
+                    $('#main_tt').tabs('update', {
+                        tab: currentTab,
+                        options: {
+                            content: createFrame(src)
+                        }
+                    });
+                    break;
+                case "close":
+                    $('#main_tt').tabs('close', currtabTitle);
+                    break;
+                case "closeall":
+                    $.each(allTabtitle, function (i, n) {
+                        if (n != onlyOpenTitle) {
+                            $('#main_tt').tabs('close', n);
+                        }
+                    });
+                    break;
+                case "closeother":
+                    $.each(allTabtitle, function (i, n) {
+                        if (n != currtabTitle && n != onlyOpenTitle) {
+                            $('#main_tt').tabs('close', n);
+                        }
+                    });
+                    break;
+                case "closeright":
+                    tabIndex = $('#main_tt').tabs('getTabIndex', currentTab);
+                    if (tabIndex == alltabs.length - 1) {
+                        return false;
+                    }
+                    $.each(allTabtitle, function (i, n) {
+                        if (i > tabIndex) {
+                            if (n != onlyOpenTitle) {
+                                $('#main_tt').tabs('close', n);
+                            }
+                        }
+                    });
+
+                    break;
+                case "closeleft":
+                    tabIndex = $('#main_tt').tabs('getTabIndex', currentTab);
+                    if (tabIndex == 1) {
+                        return false;
+                    }
+                    $.each(allTabtitle, function (i, n) {
+                        if (i < tabIndex) {
+                            if (n != onlyOpenTitle) {
+                                $('#main_tt').tabs('close', n);
+                            }
+                        }
+                    });
+
+                    break;
+                case "exit":
+                    $('#closeMenu').menu('hide');
+                    break;
+            }
+            return false;
+        }
+
+        //绑定右键菜单事件
+    </script>
+</body>
+</html>

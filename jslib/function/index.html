@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>js函数集 - JSLib</title>
+    <script src="jquery-1.8.3.js"></script>
+    <script src="libs.js"></script>
+</head>
+<body>
+    <h2>还可以输入多少个字</h2>
+    <input type="text" class="txt-rest"/><span class="txt-rest-info"></span>
+    <h2>判断哪种移动平台的浏览器</h2>
+    <a class="jmb" href="#">点击检查</a>    
+    <h2>判断是不是支持flash</h2>
+    <a class="isf" href="#">点击检查</a>
+</body>
+    <script type="text/javascript">
+        $('.jmb').click(function () {
+            $(this).html(JudgeMobileBrower());
+        });
+
+        $('.isf').click(function () {
+            $(this).html(IsSupportFlash()+"");
+        });
+    </script>
+</html>

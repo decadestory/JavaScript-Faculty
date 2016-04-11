@@ -1,0 +1,5 @@
+﻿.tb_line { height:35px; border-top:1px dashed #CCCCCC; font-family:'微软雅黑'; }
+.tb_line_hover { background-color:#86e1fa;}
+.tb_line td { color:#545252; padding:0px; text-align:center;}
+.td_line {border-top:1px dashed #CCCCCC; }
+.tb_th { background-color:#267cce; }

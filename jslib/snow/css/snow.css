@@ -1,0 +1,18 @@
+﻿body {
+}
+
+.snow-el {
+    animation: 2s ease 0s normal none infinite animations;
+    color: #FFFFFF;
+    font-family: "arial";
+    font-size: 30px;
+    height: 26px;
+    line-height: 26px;
+    opacity: 0.9;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    text-shadow: 0 0 3px #FFFFFF;
+    top: -40px;
+    width: 26px;
+}

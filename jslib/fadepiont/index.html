@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="css/fadepoint.css" rel="stylesheet" />
+    <script src="js/jquery-1.8.3.js"></script>
+</head>
+<body>
+    <div class="father">
+        <span class="point"></span>
+        <span class="title">这里是标题</span>
+        <span class="point p1"></span>
+        <span class="title p1_title">这里是标题</span>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+           
+            var st = setInterval(cycle, 1400);
+            function cycle() {
+                $(".point").animate({ opacity: "1" }, 700);
+                $(".point").animate({ opacity: "0.3" }, 700);
+            }
+
+            $(".point").mouseover(  
+            function () {
+                clearInterval(st);
+                $(this).animate({ opacity: "1" }, 700);
+                $(this).next().animate({ width: "120px" });
+                $(this).next().css("border-width", "2px");
+            });
+
+            $(".point").mouseleave(
+            function () {
+                $(this).animate({ opacity: "0.3" }, 700);
+                $(this).animate({ opacity: "1" }, 700);
+                $(this).next().css("border-width", "0px");
+                $(this).next().animate({ width: "0px" });
+                st = setInterval(cycle, 1000);
+            }); 
+       
+        });
+    </script>
+</body>
+</html>

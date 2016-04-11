@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="css/uicss.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/easyui.css" rel="stylesheet" />
+    <link href="css/icon.css" rel="stylesheet" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.easyui.min.js"></script>
+    <script src="js/ui.js"></script>
+</head>
+<body>
+    <form id="queryForm">
+        <table class="searchbox-body">
+            <tr>
+                <th>订单号：</th>
+                <td>
+                    <input id="OrderId" class="easyui-textbox" />
+                </td>
+                <th>最小可疑系数：</th>
+                <td>
+                    <input id="MinSuspicious" class="easyui-combobox">
+                </td>
+                <th>最大可疑系数：</th>
+                <td>
+                    <input id="MaxSuspicious" class="easyui-combobox">
+                </td>
+                <th>最小订单金额：</th>
+                <td>
+                    <input id="MinMoney" class="easyui-textbox" />
+                </td>
+            </tr>
+            <tr>
+                <th>最大订单金额：</th>
+                <td>
+                    <input id="MaxMoney" class="easyui-textbox" />
+                </td>
+                <th>最小优惠金额：</th>
+                <td>
+                    <input id="MinCouponMoney" class="easyui-textbox" />
+                </td>
+                <th>最大优惠金额：</th>
+                <td>
+                    <input id="MaxCouponMoney" class="easyui-textbox" />
+                </td>
+                <th>开始活动日期：</th>
+                <td>
+                    <input id="StartTime" class="easyui-datebox">
+                </td>
+            </tr>
+            <tr>
+                <th>结束活动日期：</th>
+                <td>
+                    <input id="EndTime" class="easyui-datebox">
+                </td>
+                <th>开始审核时间：</th>
+                <td>
+                    <input id="StartAuditTime" class="easyui-datebox" />
+                </td>
+                <th>结束审核时间：</th>
+                <td>
+                    <input id="EndAuditTime" class="easyui-datebox" />
+                </td>
+                <th>审核状态：</th>
+                <td>
+                    <!--<input id="AuditState" class="easyui-combobox">-->
+                    <select id="cc" class="easyui-combobox" name="dept">
+                        <option value="aa">aitem1</option>
+                        <option>bitem2</option>
+                        <option>bitem3</option>
+                        <option>ditem4</option>
+                        <option>eitem5</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>审核人：</th>
+                <td>
+                    <input id="OpUser" class="easyui-textbox">
+                </td>
+                <td colspan="2">
+                    <a href="javascript:void(0);" btn id="btn1" onclick="doQuery()" wlspac>
+                        <i class="fa fa-search"></i> 查询
+                    </a>
+                    <a href="javascript:void(0);" btn id="btn2" onclick="clearForm()" wlspac>
+                        <i class="fa fa-refresh"></i> 重置
+                    </a>
+                </td>
+            </tr>
+            
+        </table>
+    </form>
+</body>
+</html>
